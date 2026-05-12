@@ -92,7 +92,7 @@ If this fails on any byte, the architecture has failed. Every later property is 
   - Line 7 uses `∩` (U+2229 INTERSECTION) — matches Codex Appendix A, inside the parentheses.
   - All apostrophes are ASCII `'` (U+0027), not typographic.
   - Corruption codes on line 9 are ASCII `L1 L2 L3 L4 V∅` (no superscripts), double‑space separated.
-  - Number prefix is `N.␣␣␣` (digit, period, two spaces).
+  - Number prefix is `N.␣␣` (digit, period, two spaces).
 - **Ceremony-canonical byte count:** **217 bytes** (produced and verified by three independent reference verifiers across five CI methods; the document's original 221‑byte estimate was an operator target that the bytes resolved to 217).
 
 ### 2.2 Line‑by‑line text (canonical form for sealing)
@@ -120,11 +120,11 @@ If this fails on any byte, the architecture has failed. Every later property is 
 | 3    | `∞` U+221E, `→` U+2192                  | 6                              | 19                     |
 | 4    | `α` U+03B1 × 2, `≡` U+2261 (E2 89 A1) | 7                              | 21                     |
 | 5    | `φ` U+03C6 (CF 86), `⋂` U+22C2 (E2 8B 82), `Ω` U+03A9 (CE A9) | 7 | 18     |
-| 6    | `δ` U+03B4 (CE B4), `∇` U+2207 (E2 88 87) | 4                           | 24                     |
+| 6    | `δ` U+03B4 (CE B4), `∇` U+2207 (E2 88 87) | 10                          | 24                     |
 | 7    | `∩` × 1, `→` × 2, `∞` × 1              | 12                             | 36                     |
 | 8    | `∞` U+221E                              | 3                              | 23                     |
 | 9    | `∅` U+2205 (E2 88 85)                   | 3                              | 25                     |
-| **Total** |                                    | **57**                         | **217**                |
+| **Total** |                                    | **63**                         | **217**                |
 
 The per‑line byte map above is ceremony‑canonical, computed from the actual sealed `codex/codex.txt` by the three reference verifiers.
 
