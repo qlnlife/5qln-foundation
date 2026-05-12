@@ -136,6 +136,24 @@ Any implementation producing a different hash is not 5QLN.
 
 ---
 
+## Relationship between repositories
+
+This repository (`5qln-foundation`) and [`qlnlife/5qln-core`](https://github.com/qlnlife/5qln-core) serve different functions and are kept separate by design:
+
+| | `5qln-foundation` | `5qln-core` |
+|---|---|---|
+| **Role** | Constitutional anchor | Runtime kernel |
+| **Change cadence** | Ceremonial — Phase 0 amendment process with witnesses, RFC 3161 timestamps, and YubiHSM signatures | Agile — ordinary PR review, dependency updates, engineering timelines |
+| **Codex** | Nine‑line ASCII Appendix A canonical form (217 bytes) | Currently drifted ten‑line superscript form — awaiting Phase 2 realignment |
+| **Contains** | Sealed Codex, three verifiers, architecture spec, manifest, phase plans | TypeScript kernel, formation tracker, membrane watcher, AI adapter |
+| **Phase 2 action** | Unchanged — the anchor is the authority | One‑way realignment PR: constants updated to match `5qln-foundation`'s sealed Codex hash |
+
+**The repositories do not merge.** Merging would conflate two different change cadences and ratification processes, forcing either over‑ceremony on routine code changes or under‑ceremony on constitutional ones. Phase 2 realigns `5qln-core` to this repository's sealed Codex; the repositories remain distinct.
+
+**Why `5qln-core` exists with a drifted Codex:** The core repository (`5qln-core`) is the live runtime — the TypeScript kernel that powers active 5QLN cycles, formation tracking, membrane watching, and AI adaptation. It was built before the comprehensive architecture specification and carries a ten‑line superscript form of the Codex that was standard at the time of its creation. Phase 2 of the build plan realigns it — one‑way — to match this repository's nine‑line ASCII canonical form. Until that PR merges, anyone writing against the Codex should use this repository (`5qln-foundation`) as the authoritative anchor. The core repository's Codex is `[DRIFTED — awaiting Phase 2 realignment]`.
+
+---
+
 ## The phases
 
 ```

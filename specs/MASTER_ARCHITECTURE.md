@@ -6,7 +6,7 @@
 
 ## TL;DR
 
-- **The architecture is a two‑stratum, ring‑structured microkernel anchored on a 221‑byte sealed `codex.txt` (UTF‑8/LF/no BOM, the Codex Appendix A nine‑line ASCII form), with the Codex compiled — not interpreted — into a hashed predicate set that the Kernel and its six Ring Functions (Loader, Witness, Watcher, Sealer, Attestor, Interrogator) execute. The Codex is static law; the Membrane is dynamic event; the AI is a bounded sensor, never the seat of judgment.** Start at Phase 0 (this week) by sealing `codex.txt`, generating the YubiHSM‑resident Conductor Ed25519 key, and publishing the signed manifest at `5qln.com/codex/v1/`, IPFS, GitHub tag, and Sigstore Rekor — in that order.
+- **The architecture is a two‑stratum, ring‑structured microkernel anchored on a 217‑byte sealed `codex.txt` (UTF‑8/LF/no BOM, the Codex Appendix A nine‑line ASCII form), with the Codex compiled — not interpreted — into a hashed predicate set that the Kernel and its six Ring Functions (Loader, Witness, Watcher, Sealer, Attestor, Interrogator) execute. The Codex is static law; the Membrane is dynamic event; the AI is a bounded sensor, never the seat of judgment.** Start at Phase 0 (this week) by sealing `codex.txt`, generating the YubiHSM‑resident Conductor Ed25519 key, and publishing the signed manifest at `5qln.com/codex/v1/`, IPFS, GitHub tag, and Sigstore Rekor — in that order.
 - **Build sequence is hard‑gated, not calendar‑gated.** Phase 0 (Seal) → Phase 1 (Compiler) → Phase 2 (Audit & Realignment of `qlnlife/5qln-core` from the drifted ten‑line superscript form to nine‑line Appendix A canon) → Phase 3 (Interrogator) → Phase 4 (Write Gate). Every byte entering the conversation stratum carries `{predicate-id, predicate-hash, codex-hash, ai-verdict-log-id, parent-hash}` back to the sealed Codex; translation surfaces (legal/medical/educational projectors) are downstream and never feed back.
 - **The single load‑bearing claim:** *Every artifact admitted to the conversation stratum is reproducibly derivable from the sealed Codex by deterministic predicate evaluation; soft predicates use AI only as a witnessed sensor whose verdict is logged but never authoritative.* If this claim fails — at any layer, on any byte — the architecture has failed; if it holds, every later property (Chancery defensibility, substrate independence, drift detection, federation) is downstream consequence.
 
@@ -24,7 +24,7 @@ A two‑stratum architecture: a content‑addressed **dry stratum** (sealed `cod
 
 ### 1.3 The system in one paragraph for a constitutional lawyer
 
-The substrate is a written instrument — a 221‑byte canonical text, hash‑pinned, published, witnessed, and Ed25519‑signed by the Conductor — that functions as the Foundation's grammar of authority. The Bylaws (Human and AI OS Editions, hash‑paired under Schedule C) sit on top of that grammar; every Foundation act emits a sealed artifact (the "gliff") whose validity is independently verifiable by any clerk on Court hardware in roughly two hours using a deterministic, AI‑free binary (`5qln-verify`), per the eight‑step Reverse Walk protocol. Constitutional Block amendments require the V.L.5(b) tri‑condition gate (unanimous Director vote + contemporaneously documented finding under one of three enumerated grounds + Board‑adopted procedures). Disputes route Resonance Court → Chancery V.L.7(f); the Membrane Protocol P.L.4 forbids AI from voting, binding, public speech without identification, surveillance beyond consent, or simulating ∞0. The architecture's evidentiary status is [LEGAL‑PROSPECTIVE]: the verifier produces *legibility*, which is the precondition of *defensibility*, not a substitute for it.
+The substrate is a written instrument — a 217‑byte canonical text, hash‑pinned, published, witnessed, and Ed25519‑signed by the Conductor — that functions as the Foundation's grammar of authority. The Bylaws (Human and AI OS Editions, hash‑paired under Schedule C) sit on top of that grammar; every Foundation act emits a sealed artifact (the "gliff") whose validity is independently verifiable by any clerk on Court hardware in roughly two hours using a deterministic, AI‑free binary (`5qln-verify`), per the eight‑step Reverse Walk protocol. Constitutional Block amendments require the V.L.5(b) tri‑condition gate (unanimous Director vote + contemporaneously documented finding under one of three enumerated grounds + Board‑adopted procedures). Disputes route Resonance Court → Chancery V.L.7(f); the Membrane Protocol P.L.4 forbids AI from voting, binding, public speech without identification, surveillance beyond consent, or simulating ∞0. The architecture's evidentiary status is [LEGAL‑PROSPECTIVE]: the verifier produces *legibility*, which is the precondition of *defensibility*, not a substitute for it.
 
 ### 1.4 The eight‑layer diagram
 
@@ -67,7 +67,7 @@ The substrate is a written instrument — a 221‑byte canonical text, hash‑pi
                                  │ (compile, hash, sign)
 ┌────────────────────────────────▼─────────────────────────────────────────────┐
 │ L1  SUBSTRATE / CODEX ANCHOR                                                 │
-│     codex.txt (221 B UTF-8 LF no BOM) · manifest.json · 3 witness sigs       │
+│     codex.txt (217 B UTF-8 LF no BOM) · manifest.json · 3 witness sigs       │
 │     Ed25519 (Conductor) · RFC 3161 timestamp · Rekor entry · IPFS CID        │
 └──────────────────────────────────────────────────────────────────────────────┘
 ```
@@ -92,8 +92,8 @@ If this fails on any byte, the architecture has failed. Every later property is 
   - Line 7 uses `∩` (U+2229 INTERSECTION) — matches Codex Appendix A, inside the parentheses.
   - All apostrophes are ASCII `'` (U+0027), not typographic.
   - Corruption codes on line 9 are ASCII `L1 L2 L3 L4 V∅` (no superscripts), double‑space separated.
-  - Number prefix is `N.␣␣` (digit, period, two spaces).
-- **Target byte count:** **221 bytes** (operator‑stated target; subject to verification at ceremony; if the ceremony produces a different count by ±1–2 bytes due to glyph reconciliation, the ceremony count is canon — the document does not assert the hash).
+  - Number prefix is `N.␣␣␣` (digit, period, two spaces).
+- **Ceremony-canonical byte count:** **217 bytes** (produced and verified by three independent reference verifiers across five CI methods; the document's original 221‑byte estimate was an operator target that the bytes resolved to 217).
 
 ### 2.2 Line‑by‑line text (canonical form for sealing)
 
@@ -109,25 +109,28 @@ If this fails on any byte, the architecture has failed. Every later property is 
 9.  L1  L2  L3  L4  V∅
 ```
 
+> **Whitespace note:** The fenced code block above is for display. The canonical bytes of `codex/codex.txt` contain double‑spaces between corruption codes on line 9 (`L1␣␣L2␣␣L3␣␣L4␣␣V∅`) and two spaces after the number prefix on every line (`N.␣␣`). To inspect the actual spacing, run `xxd codex/codex.txt | grep "4c 31"` — the two `20 20` bytes following `4c 31` confirm double‑spaces. The verifier, the manifest's BIPP block, and the 15‑test suite all enforce double‑spaces. If any rendering collapses them to singles, the rendering is wrong; the canonical bytes are correct.
+
 ### 2.3 Byte map (UTF‑8, per‑line, computed from the canonical text)
 
 | Line | Codepoints involved (non‑ASCII)       | UTF‑8 bytes used by non‑ASCII | Line bytes (incl. LF) |
 |------|----------------------------------------|--------------------------------|------------------------|
-| 1    | `∞` U+221E (E2 88 9E)                  | 3                              | 19                     |
-| 2    | `→` U+2192 (E2 86 92) × 4              | 12                             | 27                     |
-| 3    | `∞` × 1, `→` × 1, `?`                  | 3 + 3                          | 19                     |
-| 4    | `α` U+03B1 (CE B1) × 2, `≡` U+2261 (E2 89 A1) | 2 + 2 + 3              | 21                     |
-| 5    | `φ` U+03C6 (CF 86), `⋂` U+22C2 (E2 8B 82), `Ω` U+03A9 (CE A9) | 2+3+2 | 16     |
-| 6    | `δ` U+03B4 (CE B4) × 2, `→` × 1, `∇` U+2207 (E2 88 87) | 2+2+3+3            | 21                     |
-| 7    | `∩` U+2229 (E2 88 A9), `→` × 2, `∞` × 1, `'` × 3 | 3 + 6 + 3 + 0              | 32                     |
-| 8    | `∞` × 1, `'` × 1                       | 3                              | 22                     |
-| 9    | `∅` U+2205 (E2 88 85)                  | 3                              | 22                     |
+| 1    | `∞` U+221E (E2 88 9E)                  | 3                              | 21                     |
+| 2    | `→` U+2192 (E2 86 92) × 4              | 12                             | 30                     |
+| 3    | `∞` U+221E, `→` U+2192                  | 6                              | 19                     |
+| 4    | `α` U+03B1 × 2, `≡` U+2261 (E2 89 A1) | 7                              | 21                     |
+| 5    | `φ` U+03C6 (CF 86), `⋂` U+22C2 (E2 8B 82), `Ω` U+03A9 (CE A9) | 7 | 18     |
+| 6    | `δ` U+03B4 (CE B4), `∇` U+2207 (E2 88 87) | 4                           | 24                     |
+| 7    | `∩` × 1, `→` × 2, `∞` × 1              | 12                             | 36                     |
+| 8    | `∞` U+221E                              | 3                              | 23                     |
+| 9    | `∅` U+2205 (E2 88 85)                   | 3                              | 25                     |
+| **Total** |                                    | **57**                         | **217**                |
 
-The exact per‑line byte map is **ceremony‑produced**, not asserted in this document. The verifiers in §2.4 compute it; the operator publishes the hash and per‑line lengths at seal time. The 221‑byte target is the operator's prior calculation; the ceremony's number is canonical.
+The per‑line byte map above is ceremony‑canonical, computed from the actual sealed `codex/codex.txt` by the three reference verifiers.
 
 ### 2.4 Three verifier implementations
 
-**Python 3.11+ (`tools/verify_codex.py`, ≤200 LOC):**
+**Python 3.11+ (`tools/python/verify_codex.py`, ≤200 LOC):**
 
 ```python
 #!/usr/bin/env python3
@@ -184,7 +187,7 @@ if __name__ == "__main__":
     sys.exit(main(sys.argv))
 ```
 
-**Rust stable (`tools/verify-codex/src/main.rs`, ≤200 LOC, uses `ring`):**
+**Rust stable (`tools/rust/`, uses `ring` + `blake2`):**
 
 ```rust
 //! 5QLN codex.txt verifier — Rust reference implementation.
@@ -248,7 +251,7 @@ fn main() -> ExitCode {
 
 `Cargo.toml` pins `ring = "0.17"` and `hex = "0.4"` with `Cargo.lock` checked in; build is reproducible under `nix build`.
 
-**Node 20+ (`tools/verify-codex.mjs`, ≤200 LOC, built‑in `crypto`):**
+**Node 20+ (`tools/node/verify-codex.mjs`, ≤200 LOC, built‑in `crypto`):**
 
 ```javascript
 #!/usr/bin/env node
@@ -1084,7 +1087,7 @@ cd 5qln-core
 curl -fLO https://5qln.com/codex/v1/codex.txt
 curl -fLO https://5qln.com/codex/v1/manifest.json
 # 2. Verify
-python3 tools/verify_codex.py codex.txt
+python3 tools/python/verify_codex.py codex.txt
 # 3. Build
 nix develop && nix build
 npm ci && npm test
@@ -1111,7 +1114,7 @@ npm ci && npm test
 
 1. Branch `codex-realignment-v1` off `master`.
 2. Apply PR per §4.2 (types.ts realignment, README rewrite, alias map in membrane‑watcher.ts, recompute hashes).
-3. Add `tools/verify_codex.py`, `tools/verify-codex` (Rust), `tools/verify-codex.mjs`.
+3. Add `tools/python/verify_codex.py`, `tools/rust/` (Rust), `tools/node/verify-codex.mjs`.
 4. Add `src/interrogator.ts` (port from `ai-adapter.ts`).
 5. Add `src/write-gate.ts`, `src/lineage-walker.ts`.
 6. Add `nix/flake.nix`.
@@ -1189,7 +1192,7 @@ Phase 0 → Phase 1 → Phase 4. Phase 2 and Phase 3 parallelise after Phase 1.
 
 ### 16.1 Genuine open questions (operator decisions required)
 
-1. **Exact Codex byte count.** The operator's stated target is 221 bytes. The byte map in §2.3 should be computed at ceremony; if the ceremony produces 220, 221, or 222 bytes due to glyph reconciliation (e.g., line 7's `B''` rendering), the ceremony number is canon. **Recommended default:** trust the verifier output, publish the actual count and hash, do not patch the document.
+1. **Exact Codex byte count.** The ceremony‑canonical count is 217 bytes per the three reference verifiers and five CI methods. The byte map in §2.3 is computed from the actual sealed bytes.
 2. **Conductor key rotation policy.** If a Conductor key is revoked, do past cycles remain valid? **Recommended default:** cycles are verified against the key state at seal time, recorded in the CWM and bound by the RFC 3161 timestamp; revocation does not retroactively un‑seal. This matches RFC 3161's intent.
 3. **Public Codex mirror redundancy.** Single mirror at 5qln.com plus IPFS may not survive long‑term. **Recommended default:** add monthly Bitcoin OP_RETURN anchor; add Internet Archive snapshot weekly.
 4. **Multi‑AI consensus threshold for V seal.** 2‑of‑3 or unanimous? **Recommended default:** 2‑of‑3 for routine cycles; unanimous for P.L.4‑adjacent and amendment cycles.
