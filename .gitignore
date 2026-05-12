@@ -1,0 +1,41 @@
+# Build artifacts
+target/
+node_modules/
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+dist/
+build/
+
+# Environment
+.env
+.env.local
+.venv/
+venv/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Secrets (never commit)
+*.key
+*.pem
+*-private.*
+secrets/
+
+# Phase 0 ceremony artifacts (signed manifests etc — these are managed separately)
+manifest/signed/
+ceremony/
+
+# Rust
+**/Cargo.lock
+# (Cargo.lock is committed for the verifier build; ignore only nested ones)
+!tools/rust/Cargo.lock

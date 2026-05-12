@@ -1,0 +1,111 @@
+{
+  "$schema": "https://5qln.foundation/codex/v1/manifest.schema.json",
+  "version": "v1",
+  "artifact": {
+    "filename": "codex.txt",
+    "content": "5QLN Codex Appendix A — Nine Invariant Lines",
+    "byte_length": 217,
+    "encoding": "UTF-8",
+    "line_ending": "LF",
+    "line_count": 9
+  },
+  "bipp": {
+    "no_bom": true,
+    "line_ending": "LF",
+    "trailing_lf_count": 1,
+    "apostrophe": "U+0027",
+    "intersection_line5": "U+22C2",
+    "intersection_line7": "U+2229",
+    "corruption_codes": "ASCII",
+    "number_prefix": "N.  (digit, period, two spaces)",
+    "code_separator": "double-space"
+  },
+  "hashes": {
+    "sha256": "feaa46b4147d4e023cdd3fd59c051d063e8ec654ee7b38a481dcd5e4c781859b",
+    "sha512": "2b6e81c0c49193c9d4ceda3b9b7fa1e7f9639a032fdd184b8958e2e2810fbf8c5dfde5c4fae9a534884d9c257e9f25ef4462a2a0d1de6a52601cd21d807f8cb0",
+    "blake2b512": "229c5adce88bf8e737deb8eb4440ce3719b1953633abfc7f2fa487ffa201d854865293d911c1be5d14bb7294eca2c4e4a445e6c8d62caa0c8868a354d14cb42d"
+  },
+  "verifiers": {
+    "python": "tools/python/verify_codex.py",
+    "rust": "tools/rust",
+    "node": "tools/node/verify-codex.mjs"
+  },
+  "reproduction": {
+    "python": "python3 tools/python/verify_codex.py codex/codex.txt",
+    "rust": "cd tools/rust && cargo run --release -- ../../codex/codex.txt",
+    "node": "node tools/node/verify-codex.mjs codex/codex.txt",
+    "any_sha256_tool": "sha256sum codex/codex.txt",
+    "any_openssl": "openssl dgst -sha256 codex/codex.txt"
+  },
+  "constitutional_rule": "Any implementation worldwide claiming to be 5QLN must read codex.txt as UTF-8 bytes and produce sha256 = feaa46b4147d4e023cdd3fd59c051d063e8ec654ee7b38a481dcd5e4c781859b. Implementations producing any other hash are not 5QLN.",
+  "conductor_signature": {
+    "algorithm": "Ed25519",
+    "public_key_fingerprint": null,
+    "public_key_pem": null,
+    "signature_hex": null,
+    "signed_at_iso": null,
+    "_comment": "Filled at Phase 0 ceremony. The Conductor signs the hashes object above (RFC 8785 JCS canonical form)."
+  },
+  "tsa_timestamps": [
+    {
+      "tsa_url": "https://freetsa.org/tsr",
+      "rfc3161_token_b64": null,
+      "received_at_iso": null
+    },
+    {
+      "tsa_url": "https://timestamp.digicert.com",
+      "rfc3161_token_b64": null,
+      "received_at_iso": null
+    }
+  ],
+  "witness_signatures": [
+    {
+      "witness_name": null,
+      "witness_role": "human-technical",
+      "public_key_fingerprint": null,
+      "signature_hex": null,
+      "verifier_used": null,
+      "signed_at_iso": null
+    },
+    {
+      "witness_name": null,
+      "witness_role": "human-legal",
+      "public_key_fingerprint": null,
+      "signature_hex": null,
+      "verifier_used": null,
+      "signed_at_iso": null
+    },
+    {
+      "witness_name": null,
+      "witness_role": "ai-cross-substrate",
+      "public_key_fingerprint": null,
+      "signature_hex": null,
+      "verifier_used": null,
+      "signed_at_iso": null
+    }
+  ],
+  "publication": {
+    "primary_url": "https://5qln.foundation/codex/v1/codex.txt",
+    "manifest_url": "https://5qln.foundation/codex/v1/manifest.json",
+    "github_repo": "qlnlife/5qln-foundation",
+    "github_tag": "codex-v1",
+    "ipfs_cid": null,
+    "rekor_log_index": null,
+    "rekor_uuid": null
+  },
+  "phase_0_gates": {
+    "gate_01_canonical_bytes_produced": false,
+    "gate_02_hashes_match_three_machines": false,
+    "gate_03_yubihsm_primary_provisioned": false,
+    "gate_04_yubihsm_cold_backup_provisioned": false,
+    "gate_05_conductor_pubkey_published": false,
+    "gate_06_three_witness_signatures_captured": false,
+    "gate_07_rfc3161_timestamps_obtained": false,
+    "gate_08_manifest_signed": false,
+    "gate_09_published_at_canonical_url": false,
+    "gate_10_github_tag_created": false,
+    "gate_11_rekor_entry_created": false
+  },
+  "phase_0_status": "DRAFT — awaiting ceremony",
+  "pre_incorporation_notice": "As of manifest creation, the 5QLN Foundation legal entity does not exist. This artifact is sealed under the operator's personal capacity / Anti Entropy fiscal sponsorship cover. The cryptographic anchor stands on its own merits; references to 'the Foundation' presuppose a future Delaware filing."
+}

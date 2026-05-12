@@ -1,0 +1,36 @@
+                                 Apache License
+                           Version 2.0, January 2004
+                        http://www.apache.org/licenses/
+
+Copyright (c) 2026 Amihai Loven and 5QLN Foundation contributors
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+
+================================================================================
+
+ADDITIONAL TERMS FOR THE CODEX
+
+The file `codex/codex.txt` contains the 5QLN Codex Appendix A canonical
+form (the "Codex"). The Codex is additionally published under the 5QLN Open
+Source License at https://www.5qln.com/5qln-open-source-license/.
+
+The Codex's 217 canonical bytes may not be modified except by the V.L.5(b)
+tri-condition gate documented in GOVERNANCE.md. Any implementation of 5QLN
+must reproduce the canonical SHA-256 hash:
+
+    feaa46b4147d4e023cdd3fd59c051d063e8ec654ee7b38a481dcd5e4c781859b
+
+Implementations producing any other hash are not 5QLN, regardless of any
+other claim of conformance.
+
+================================================================================

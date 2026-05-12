@@ -1,0 +1,135 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://5qln.foundation/codex/v1/manifest.schema.json",
+  "title": "5QLN Codex Anchor Manifest v1",
+  "type": "object",
+  "required": [
+    "version", "artifact", "bipp", "hashes", "verifiers",
+    "constitutional_rule", "conductor_signature", "tsa_timestamps",
+    "witness_signatures", "publication", "phase_0_gates", "phase_0_status"
+  ],
+  "properties": {
+    "$schema": { "type": "string", "format": "uri" },
+    "version": { "const": "v1" },
+    "artifact": {
+      "type": "object",
+      "required": ["filename", "byte_length", "encoding", "line_ending", "line_count"],
+      "properties": {
+        "filename": { "const": "codex.txt" },
+        "content": { "type": "string" },
+        "byte_length": { "type": "integer", "minimum": 1 },
+        "encoding": { "const": "UTF-8" },
+        "line_ending": { "const": "LF" },
+        "line_count": { "const": 9 }
+      }
+    },
+    "bipp": {
+      "type": "object",
+      "required": ["no_bom", "line_ending", "apostrophe", "intersection_line5", "intersection_line7", "corruption_codes"],
+      "properties": {
+        "no_bom": { "const": true },
+        "line_ending": { "const": "LF" },
+        "trailing_lf_count": { "const": 1 },
+        "apostrophe": { "const": "U+0027" },
+        "intersection_line5": { "const": "U+22C2" },
+        "intersection_line7": { "const": "U+2229" },
+        "corruption_codes": { "const": "ASCII" },
+        "number_prefix": { "type": "string" },
+        "code_separator": { "type": "string" }
+      }
+    },
+    "hashes": {
+      "type": "object",
+      "required": ["sha256", "sha512", "blake2b512"],
+      "properties": {
+        "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+        "sha512": { "type": "string", "pattern": "^[0-9a-f]{128}$" },
+        "blake2b512": { "type": "string", "pattern": "^[0-9a-f]{128}$" }
+      }
+    },
+    "verifiers": {
+      "type": "object",
+      "required": ["python", "rust", "node"],
+      "properties": {
+        "python": { "type": "string" },
+        "rust": { "type": "string" },
+        "node": { "type": "string" }
+      }
+    },
+    "reproduction": { "type": "object" },
+    "constitutional_rule": { "type": "string" },
+    "conductor_signature": {
+      "type": "object",
+      "required": ["algorithm"],
+      "properties": {
+        "algorithm": { "const": "Ed25519" },
+        "public_key_fingerprint": { "type": ["string", "null"], "pattern": "^[0-9a-f]{64}$" },
+        "public_key_pem": { "type": ["string", "null"] },
+        "signature_hex": { "type": ["string", "null"], "pattern": "^[0-9a-f]{128}$" },
+        "signed_at_iso": { "type": ["string", "null"], "format": "date-time" }
+      }
+    },
+    "tsa_timestamps": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["tsa_url"],
+        "properties": {
+          "tsa_url": { "type": "string", "format": "uri" },
+          "rfc3161_token_b64": { "type": ["string", "null"] },
+          "received_at_iso": { "type": ["string", "null"], "format": "date-time" }
+        }
+      }
+    },
+    "witness_signatures": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 3,
+      "items": {
+        "type": "object",
+        "required": ["witness_role"],
+        "properties": {
+          "witness_name": { "type": ["string", "null"] },
+          "witness_role": { "enum": ["human-technical", "human-legal", "ai-cross-substrate"] },
+          "public_key_fingerprint": { "type": ["string", "null"], "pattern": "^[0-9a-f]{64}$" },
+          "signature_hex": { "type": ["string", "null"], "pattern": "^[0-9a-f]{128}$" },
+          "verifier_used": { "type": ["string", "null"], "enum": [null, "python", "rust", "node"] },
+          "signed_at_iso": { "type": ["string", "null"], "format": "date-time" }
+        }
+      }
+    },
+    "publication": {
+      "type": "object",
+      "properties": {
+        "primary_url": { "type": "string", "format": "uri" },
+        "manifest_url": { "type": "string", "format": "uri" },
+        "github_repo": { "type": "string" },
+        "github_tag": { "type": "string" },
+        "ipfs_cid": { "type": ["string", "null"] },
+        "rekor_log_index": { "type": ["integer", "null"], "minimum": 0 },
+        "rekor_uuid": { "type": ["string", "null"] }
+      }
+    },
+    "phase_0_gates": {
+      "type": "object",
+      "properties": {
+        "gate_01_canonical_bytes_produced": { "type": "boolean" },
+        "gate_02_hashes_match_three_machines": { "type": "boolean" },
+        "gate_03_yubihsm_primary_provisioned": { "type": "boolean" },
+        "gate_04_yubihsm_cold_backup_provisioned": { "type": "boolean" },
+        "gate_05_conductor_pubkey_published": { "type": "boolean" },
+        "gate_06_three_witness_signatures_captured": { "type": "boolean" },
+        "gate_07_rfc3161_timestamps_obtained": { "type": "boolean" },
+        "gate_08_manifest_signed": { "type": "boolean" },
+        "gate_09_published_at_canonical_url": { "type": "boolean" },
+        "gate_10_github_tag_created": { "type": "boolean" },
+        "gate_11_rekor_entry_created": { "type": "boolean" }
+      }
+    },
+    "phase_0_status": {
+      "enum": ["DRAFT — awaiting ceremony", "IN CEREMONY", "SEALED", "AMENDED — see v2"]
+    },
+    "pre_incorporation_notice": { "type": "string" }
+  }
+}

@@ -1,0 +1,22 @@
+[package]
+name = "verify-codex"
+version = "0.1.0"
+edition = "2021"
+authors = ["5QLN Foundation"]
+description = "5QLN Codex anchor verifier — cross-implementation defense"
+license = "Apache-2.0"
+
+[[bin]]
+name = "verify-codex"
+path = "src/main.rs"
+
+[dependencies]
+ring = "0.17"
+blake2 = "0.10"
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+panic = "abort"
+strip = true
