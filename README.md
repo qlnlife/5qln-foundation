@@ -121,7 +121,6 @@ Any implementation producing a different hash is not 5QLN.
 ├── write-gate/                    ← every byte carries a proof chain
 ├── tests/
 │   ├── python/test_verify_codex.py   ← 13 negative + 2 positive tests
-│   └── fixtures/                     ← canonical and drift fixtures
 ├── scripts/
 │   └── seal-phase-0.sh            ← the ceremony script
 ├── docs/                          ← supporting documentation

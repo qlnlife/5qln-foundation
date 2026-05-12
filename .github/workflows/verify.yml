@@ -11,8 +11,8 @@ jobs:
     name: Python verifier
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.11"
       - name: Run Python verifier
@@ -26,8 +26,8 @@ jobs:
     name: Node verifier
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v6
         with:
           node-version: "20"
       - name: Run Node verifier
@@ -37,7 +37,7 @@ jobs:
     name: Rust verifier
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: dtolnay/rust-toolchain@stable
       - name: Build Rust verifier
         run: cd tools/rust && cargo build --release
@@ -48,7 +48,7 @@ jobs:
     name: Standard sha256sum
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Compute hash with coreutils
         run: |
           EXPECTED="feaa46b4147d4e023cdd3fd59c051d063e8ec654ee7b38a481dcd5e4c781859b"
@@ -65,7 +65,7 @@ jobs:
     name: OpenSSL digest
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Compute hash with openssl
         run: |
           EXPECTED="feaa46b4147d4e023cdd3fd59c051d063e8ec654ee7b38a481dcd5e4c781859b"
@@ -79,8 +79,8 @@ jobs:
     name: Manifest schema validation
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.11"
       - name: Install jsonschema
