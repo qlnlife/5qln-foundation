@@ -15,6 +15,7 @@ Thank you for caring about this work. A few things to know.
 
 - All code in `tools/`, `kernel/`, `interrogator/`, `write-gate/`
 - All documentation outside the constitutional set above
+- All files in `narrative/` (Tier-B records — can be amended through ordinary PR workflow)
 - Test fixtures and test suites
 - CI/CD configuration
 
@@ -76,3 +77,16 @@ The membrane between human and AI is structural. Treat the AI as a sensor in PRs
 ## License
 
 Contributions are licensed under Apache 2.0 unless otherwise stated. See [`LICENSE`](LICENSE).
+
+### Narrative contributions
+
+Files in `narrative/` are Tier-B Structured Records. They can be amended through
+ordinary PR workflow. Guidelines:
+
+- Load-bearing numerical claims (Codex hash, byte count) must match `codex/codex.txt`
+- Epistemic register tags are required on any claim that could be mistaken for authority
+- Mirror discipline: if you change narrative prose, the 5qln.com mirror should be
+  updated to match (or the drift documented as intentional — pre-incorporation,
+  a weekly comparison check is sufficient)
+- Prose improvements (clarity, accuracy, corrections) are welcome
+- Substantive reinterpretation of the architecture belongs in `specs/`, not narrative

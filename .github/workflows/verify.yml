@@ -97,10 +97,51 @@ jobs:
           print('PASS: manifest validates against schema')
           "
 
+  verify-narrative-hashes:
+    name: Narrative hash claims
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - name: Verify narrative SHA-256 claims match codex
+        run: |
+          echo "Computing canonical codex hash..."
+          CANONICAL=$(sha256sum codex/codex.txt | awk '{print $1}')
+          echo "Canonical: $CANONICAL"
+          echo ""
+          FAILURES=0
+          for f in narrative/*.md; do
+            [ "$f" = "narrative/README.md" ] && continue
+            echo "--- $f ---"
+            HASHES=$(grep -oP '[a-f0-9]{64}' "$f" || true)
+            for h in $HASHES; do
+              if [ "$h" = "$CANONICAL" ]; then
+                echo "  OK: $h"
+              else
+                echo "  MISMATCH: $h (expected $CANONICAL)"
+                FAILURES=$((FAILURES + 1))
+              fi
+            done
+          done
+          if [ $FAILURES -gt 0 ]; then
+            echo ""
+            echo "FAIL: $FAILURES hash mismatch(es)"
+            exit 1
+          fi
+          echo ""
+          echo "PASS: All narrative hash claims match canonical Codex"
+
+      - name: Verify narrative image hashes
+        if: hashFiles('narrative/images/HASHES.txt') != ''
+        run: |
+          echo "Verifying narrative image integrity..."
+          cd narrative/images
+          sha256sum -c HASHES.txt --strict --quiet
+          echo "PASS: All narrative image hashes match pinned values"
+
   cross-implementation-agreement:
     name: All verifiers agree
     runs-on: ubuntu-latest
-    needs: [verify-python, verify-node, verify-rust, verify-sha256, verify-openssl]
+    needs: [verify-python, verify-node, verify-rust, verify-sha256, verify-openssl, validate-manifest, verify-narrative-hashes]
     steps:
       - name: Cross-implementation success
         run: |

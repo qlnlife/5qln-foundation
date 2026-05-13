@@ -28,6 +28,20 @@ This repository does **not** yet contain the live kernel runtime — that lives 
 
 ---
 
+## Start here (for humans)
+
+If you're new to the substrate and want to understand the *why* before the *how*,
+start with the narrative triad in [`narrative/`](narrative/):
+
+1. **`the-codex-became-physics.md`** — origin story: how the Codex became a verifiable substrate
+2. **`inside-the-report.md`** — reader's guide to the 32,000-word architecture spec
+3. **`the-5qln-foundation-substrate.md`** — synthesis: the full constitutional stack explained
+
+These are Tier-B records — they describe the architecture, they don't govern it.
+The Codex governs. But the narrative is the gentler slope.
+
+---
+
 ## The Codex (canonical anchor)
 
 The canonical bytes of `codex/codex.txt`:
