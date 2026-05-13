@@ -234,6 +234,7 @@ The Codex (`codex/codex.txt`) is additionally published under the [5QLN Open Sou
 ## See also
 
 - The Codex: [5qln.com/codex/](https://www.5qln.com/codex/)
+- The Foundation Substrate explained: [5qln.com/the-5qln-foundation-substrate/](https://www.5qln.com/the-5qln-foundation-substrate/)
 - The author's substack: [5qln.com](https://www.5qln.com)
 - Related repository: [`qlnlife/5qln-core`](https://github.com/qlnlife/5qln-core) (TypeScript kernel — awaiting Phase 2 realignment)
 - Master Architecture Document: [`specs/MASTER_ARCHITECTURE.md`](specs/MASTER_ARCHITECTURE.md)
