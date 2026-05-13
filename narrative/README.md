@@ -50,3 +50,8 @@ for the three narrative documents.
 Each image's SHA-256 is pinned in `images/HASHES.txt`. CI verifies on every
 commit that all images match their pinned hashes. Any image swap (intentional
 or accidental) must update HASHES.txt and pass the same verification gate.
+
+## SEE ALSO
+
+- [The 5QLN Foundation Substrate](https://www.5qln.com/the-5qln-foundation-substrate/) — canonical web origin of narrative.003
+- [github.com/qlnlife/5qln-foundation](https://github.com/qlnlife/5qln-foundation) — this repo
